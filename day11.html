@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Foreign key and join statements</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="header">
+        <h1>ASSIGNMENTS</h1>
+       </div>
+       <div class="row">
+
+        </div>
+       <div class="main">
+    <h2> Foreign Keys</h2>
+Foreign keys are a fundamental concept in relational databases. They establish a relationship between two tables, typically referred to as the parent table (or referenced table) and the child table (or referencing table). Here are the key points about foreign keys:
+<h4>Definition:</h4> A foreign key is a column or a set of columns in a table that uniquely identifies a row in another table.
+<h4>Purpose:</h4> Foreign keys enforce referential integrity by ensuring that the values in the foreign key column(s) of the child table match the values in the primary key column(s) of the parent table or have a null value if the parent key is nullable.
+<h4>Example:</h4> Suppose you have two tables Orders and Customers. Each order is associated with a customer. Here's how you might define a foreign key:
+<br><br>
+CREATE TABLE Customers (<br>
+    CustomerID INT PRIMARY KEY,<br>
+    CustomerName VARCHAR(100)<br>
+);<br><br>
+
+CREATE TABLE Orders (<br>
+    OrderID INT PRIMARY KEY,<br>
+    OrderDate DATE,<br>
+    CustomerID INT,<br>
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)<br>
+);<br><br>
+In this example:<br>
+
+CustomerID in the Orders table is a foreign key that references CustomerID in the Customers table.<br>
+This ensures that every CustomerID in the Orders table must exist in the Customers table, maintaining referential integrity.
+<h2>Join Statements</h2>
+Join statements are used to combine rows from two or more tables based on a related column between them. There are several types of joins in SQL:
+    
+<h3>Inner Join:   </h3> Retrieves rows from both tables where there is a match between the columns in both tables.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+<h3>Left Join (or Left Outer Join):   </h3> Retrieves all rows from the left table (Orders), and the matched rows from the right table (Customers). If there is no match, NULL values are returned for the columns from the right table.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+<h3>Right Join (or Right Outer Join):   </h3> Retrieves all rows from the right table (Customers), and the matched rows from the left table (Orders). If there is no match, NULL values are returned for the columns from the left table.<br><br>
+
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;<br>
+<h3>Full Join (or Full Outer Join):   </h3> Retrieves all rows from both tables. If there is no match, NULL values are returned for columns from the table that lacks a matching row.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+FULL JOIN Customers ON Orders.CustomerID = Customers.CustomerID;<br>
+Example Usage<br>
+Using the previous example with the Orders and Customers tables:
+
+<h3>Inner Join:   </h3> Retrieves orders along with their customer names.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;<br>
+<h3>Left Join:    </h3>Retrieves all orders, including those without a customer (if any), along with their customer names if available.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+<h3>Right Join:   </h3> Retrieves all customers, including those without any orders, along with their order IDs if available.<br><br>
+         
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+<h3>Full Join:   </h3> Retrieves all orders and all customers, matching them where possible.<br><br>
+
+SELECT Orders.OrderID, Customers.CustomerName<br>
+FROM Orders<br>
+FULL JOIN Customers ON Orders.CustomerID = Customers.CustomerID;<br><br>
+Joins allow you to combine related data from multiple tables in a single query, leveraging the relationships established by foreign keys. They are essential for querying and analyzing data across normalized databases efficiently.
+
+
+
+
+    </div>
+      <div class="footer">
+        COPYRIGHT@ Aashutosh Adhikari
+        </div>
+    </body>
+</html>
