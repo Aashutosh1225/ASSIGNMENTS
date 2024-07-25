@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Normalization</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="header">
+        <h1>ASSIGNMENTS</h1>
+       </div>
+       <div class="row">
+
+        </div>
+       <div class="main">
+      Normalization is a process in database design that organizes tables and attributes to minimize redundancy and dependency by dividing large tables into smaller, related tables. The goal of normalization is to improve data integrity and reduce data anomalies such as insertion, update, and deletion anomalies. Here are the key concepts and levels of normalization typically discussed in relational database design:
+
+<h2>Levels of Normalization</h2>
+<h3>First Normal Form (1NF):</h3>
+
+Eliminates repeating groups within a table by ensuring that each column contains atomic (indivisible) values.<br>
+Example: Instead of storing multiple phone numbers in a single column, create a separate table for phone numbers linked by a primary key.
+<h3>Second Normal Form (2NF):</h3>
+
+Ensures that a table is in 1NF and that all non-key attributes are fully dependent on the primary key.<br>
+Achieved by removing partial dependencies, where some attributes depend on only part of the primary key.<br>
+Example: Splitting a table with composite primary keys into separate tables where each table has a single-column primary key.
+<h3>Third Normal Form (3NF):</h3>
+
+Ensures that a table is in 2NF and that there are no transitive dependencies between non-key attributes.<br>
+Achieved by removing fields that do not depend on the primary key directly but depend on other non-key attributes.<br>
+Example: Moving non-key attributes that depend on each other into their own tables to break transitive dependencies.
+<h2>Benefits of Normalization</h2>
+<h3>Reduction of Redundancy:</h3> Normalization reduces redundant data by breaking up large tables into smaller, more focused tables.
+
+<h3>Improved Data Integrity:</h3> By reducing redundancy, normalization helps ensure that updates and deletions maintain consistency across the database.
+
+<h3>Easier Maintenance:</h3> With well-normalized tables, modifying the database schema is easier and less prone to errors.
+
+<h3>Enhanced Query Performance:</h3> Well-designed normalized tables can lead to better query performance, especially when accessing specific subsets of data.
+         <br><br>
+         Normalization ensures that each table serves a single purpose, eliminates redundant data, and reduces the potential for anomalies during data manipulation. It's a critical aspect of database design to ensure efficient and reliable data storage and retrieval.
+    </div>
+      <div class="footer">
+        COPYRIGHT@ Aashutosh Adhikari
+        </div>
+    </body>
+</html>
