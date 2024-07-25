@@ -12,7 +12,45 @@
 
         </div>
        <div class="main">
-   
+   Logical operators in SQL are used to combine multiple conditions in WHERE clauses or JOIN conditions to filter rows based on specified criteria. Here are the main logical operators commonly used in SQL:
+
+<h3>AND Operator (AND):</h3>
+The AND operator is used to combine two or more conditions. It returns true only if all conditions separated by AND are true.
+<h4>Example:</h4>
+SELECT * FROM Employees<br>
+WHERE Department = 'IT' AND Salary > 50000;<br>
+In this example, the query selects employees who belong to the IT department and have a salary greater than 50,000.
+
+<h3>OR Operator (OR):</h3>
+The OR operator is used to combine two or more conditions. It returns true if at least one of the conditions separated by OR is true.
+<h4>Example:</h4>
+SELECT * FROM Employees<br>
+WHERE Department = 'IT' OR Department = 'Finance';<br>
+This query selects employees who belong to either the IT department or the Finance department.
+
+           <h3>NOT Operator (NOT):</h3>
+The NOT operator is used to negate a condition, i.e., it returns true if the condition following NOT is false, and vice versa.
+<h4>Example:</h4>
+SELECT * FROM Employees<br>
+WHERE NOT Department = 'HR';<br>
+This query selects employees who do not belong to the HR department.
+
+           <h3>Combining Operators:</h3>
+Logical operators can be combined to create complex conditions.
+<h4>Example:</h4>
+SELECT * FROM Employees<br>
+WHERE (Department = 'IT' OR Department = 'Finance') AND Salary > 50000;<br>
+This query selects employees who belong to either the IT or Finance department and have a salary greater than 50,000.
+
+           <h3>Order of Evaluation:</h3>
+SQL evaluates AND before OR unless parentheses are used to specify a different order.
+<h4>Example:</h4>
+SELECT * FROM Employees<br>
+WHERE Department = 'IT' OR Department = 'Finance' AND Salary > 50000;<br>
+Here, AND has higher precedence than OR. To select employees in either IT or Finance departments with a salary greater than 50,000, you would write:<br>
+SELECT * FROM Employees<br>
+WHERE (Department = 'IT' OR Department = 'Finance') AND Salary > 50000;<br>
+Logical operators are fundamental in SQL for constructing complex conditions that precisely filter data based on specified criteria, thereby enabling more sophisticated querying and data retrieval operations.
     </div>
       <div class="footer">
         COPYRIGHT@ Aashutosh Adhikari
