@@ -46,10 +46,10 @@ This query selects employees who belong to either the IT or Finance department a
 SQL evaluates AND before OR unless parentheses are used to specify a different order.
 <h4>Example:</h4>
 SELECT * FROM Employees<br>
-WHERE Department = 'IT' OR Department = 'Finance' AND Salary > 50000;<br>
-Here, AND has higher precedence than OR. To select employees in either IT or Finance departments with a salary greater than 50,000, you would write:<br>
+WHERE Department = 'IT' OR Department = 'Finance' AND Salary > 50000;<br><br>
+Here, AND has higher precedence than OR. To select employees in either IT or Finance departments with a salary greater than 50,000, you would write:<br><br>
 SELECT * FROM Employees<br>
-WHERE (Department = 'IT' OR Department = 'Finance') AND Salary > 50000;<br>
+WHERE (Department = 'IT' OR Department = 'Finance') AND Salary > 50000;<br><br>
 Logical operators are fundamental in SQL for constructing complex conditions that precisely filter data based on specified criteria, thereby enabling more sophisticated querying and data retrieval operations.
     </div>
       <div class="footer">
